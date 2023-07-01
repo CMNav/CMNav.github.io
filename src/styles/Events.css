@@ -1,0 +1,87 @@
+.hero-events {
+  position: relative;
+  height: auto;
+  overflow: hidden;
+}
+
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.events-filters {
+  position: relative;
+  display: flex;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  padding-top: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+.org-filter {
+  width: 20%;
+}
+
+.type-filter {
+  width: 20%;
+}
+
+.org-select {
+  width: 100%;
+  border-radius: 25px;
+}
+
+.type-select {
+  width: 100%;
+  border-radius: 25px;
+}
+
+.events-section {
+  margin: 20px;
+}
+
+.section-title {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.see-more {
+  display: inline-block;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.events-cards {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+  justify-content: center;
+}
+
+/* .events-cards::-webkit-scrollbar {
+  display: none; 
+} */
+
+.event-card {
+  margin: 25px;
+  width: 25%;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.event-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
