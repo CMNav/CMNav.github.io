@@ -3,7 +3,9 @@
   height: auto;
   overflow: hidden;
 }
-
+body {
+  overflow-x: hidden;
+}
 .nav {
   position: absolute;
   top: 0;
@@ -62,26 +64,39 @@
   margin-bottom: 10px;
 }
 
-.events-cards {
-  display: flex;
-  overflow-x: auto;
-  scrollbar-width: none; /* Hide scrollbar for Firefox */
-  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
-  justify-content: center;
+.event-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-/* .events-cards::-webkit-scrollbar {
-  display: none; 
-} */
+.events-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+}
 
 .event-card {
-  margin: 25px;
-  width: 25%;
+  width: calc(33.33% - 10px); /* Adjust the width as needed */
+  margin-bottom: 30px; /* Increase margin-bottom to create more space */
   cursor: pointer;
   transition: transform 0.3s;
 }
 
-.event-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+.event-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px; /* Increase margin-bottom to create more space */
+}
+
+.event-card .MuiTypography-root {
+  margin-bottom: 10px; /* Increase margin-bottom to create more space */
+}
+
+@media (max-width: 768px) {
+  .event-card {
+    width: calc(50% - 10px);
+  }
 }

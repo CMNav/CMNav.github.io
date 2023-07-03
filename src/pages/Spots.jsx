@@ -1,91 +1,3 @@
-// import React, { useState } from "react";
-// import { Checkbox, FormControlLabel } from "@mui/material";
-// import Navbar from "../components/navbar";
-// import Hero from "../components/Hero";
-
-// const categories = [
-//   { name: "Sites", subcategories: ["Historical", "Museums", "Parks"] },
-//   { name: "Shopping", subcategories: ["Malls", "Boutiques", "Markets"] },
-//   { name: "To Do", subcategories: ["Tours", "Activities", "Nightlife"] },
-//   { name: "Restaurants", subcategories: ["Italian", "Chinese", "Mexican"] },
-//   { name: "Events", subcategories: ["Concerts", "Festivals", "Sports"] },
-// ];
-
-// const Spots = () => {
-//   const [selectedCategories, setSelectedCategories] = useState([]);
-//   const [selectedSubcategories, setSelectedSubcategories] = useState([]);
-
-//   const handleCategoryChange = (event, category) => {
-//     if (event.target.checked) {
-//       setSelectedCategories([...selectedCategories, category]);
-//     } else {
-//       setSelectedCategories(
-//         selectedCategories.filter((item) => item !== category)
-//       );
-//     }
-//   };
-
-//   const handleSubcategoryChange = (event, subcategory) => {
-//     if (event.target.checked) {
-//       setSelectedSubcategories([...selectedSubcategories, subcategory]);
-//     } else {
-//       setSelectedSubcategories(
-//         selectedSubcategories.filter((item) => item !== subcategory)
-//       );
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <div className="nav">
-//         <Navbar />
-//       </div>
-//       <div className="hero-spots">
-//         <Hero
-//           title="Spots"
-//           description="Discover the hidden gems of the city"
-//           // backgroundImage={herobg}
-//         />
-//       </div>
-//       <div className="faceted-search">
-//         <h2>Categories</h2>
-//         {categories.map((category) => (
-//           <FormControlLabel
-//             key={category.name}
-//             control={
-//               <Checkbox
-//                 onChange={(event) => handleCategoryChange(event, category.name)}
-//               />
-//             }
-//             label={category.name}
-//           />
-//         ))}
-//         <h3>Subcategories</h3>
-//         {selectedCategories.length > 0 &&
-//           categories
-//             .filter((category) => selectedCategories.includes(category.name))
-//             .flatMap((category) => category.subcategories)
-//             .map((subcategory) => (
-//               <FormControlLabel
-//                 key={subcategory}
-//                 control={
-//                   <Checkbox
-//                     onChange={(event) =>
-//                       handleSubcategoryChange(event, subcategory)
-//                     }
-//                   />
-//                 }
-//                 label={subcategory}
-//               />
-//             ))}
-//       </div>
-//       <div className="cards">{/* Display cards here */}</div>
-//     </div>
-//   );
-// };
-
-// export default Spots;
-
 import React, { useState } from "react";
 import { Checkbox, FormControlLabel } from "@mui/material";
 import Navbar from "../components/navbar";
@@ -120,9 +32,17 @@ const categories = [
   { name: "To Do", subcategories: ["Tours", "Activities", "Nightlife"] },
   {
     name: "Restaurants",
-    subcategories: ["Italian", "Chinese", "Mexican", "Cafes", "FastFood"],
+    subcategories: [
+      "Italian",
+      "Asian",
+      "Sea Food",
+      "Cafes",
+      "Fast Food",
+      "Fine Dining",
+      "Family Friendly",
+      "Vegan",
+    ],
   },
-  // { name: "Events", subcategories: ["Concerts", "Festivals", "Sports"] },
 ];
 
 const SpotCard = ({ name, location, description, image, category }) => {
@@ -232,12 +152,21 @@ const Spots = () => {
           return ToDo_Nightlife;
         case "Italian":
           return Resturants_Italian;
-        case "Chinese":
+        case "Asian":
           return Resturants_Asian;
         case "Cafes":
           return Resturants_Cafes;
-        case "FastFood":
+        case "Fast Food":
           return Resturants_FastFood;
+        case "Sea Food":
+          return Resturants_Seafood;
+        case "Fine Dining":
+          return Resturants_FineDining;
+        case "Family Friendly":
+          return Resturants_FamilyFriendly;
+        case "Vegan":
+          return Resturants_Vegan;
+
         default:
           return [];
       }
@@ -245,7 +174,28 @@ const Spots = () => {
   } else {
     // If no subcategories are selected, show random cards or featured cards
     // Here, you can define the logic to fetch or randomly select cards
-    spots = []; // Replace this with your logic to fetch random/featured cards
+    spots = [
+      {
+        name: "Resturants FastFood",
+        description: "Resturants FastFood description",
+        image: "Resturants FastFood image",
+      },
+      {
+        name: "parks",
+        description: "parks description",
+        image: "parks image",
+      },
+      {
+        name: "museums",
+        description: "museums description",
+        image: "museums image",
+      },
+      {
+        name: "museums",
+        description: "museums description",
+        image: "museums image",
+      },
+    ];
   }
 
   return (

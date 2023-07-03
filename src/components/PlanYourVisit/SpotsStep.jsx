@@ -31,29 +31,29 @@ const spots = [
   // Add more spots...
 ];
 
-const SpotsStep = () => {
+const ItemStep = ({ items }) => {
   return (
     <Box
       sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
     >
       <Box sx={{ width: "80%" }}>
-        {spots.map((spot) => (
+        {items.map((item) => (
           <Card
-            key={spot.id}
+            key={item.id}
             sx={{ display: "flex", marginBottom: "20px", position: "relative" }}
           >
             <CardMedia
               component="img"
               sx={{ width: 200, height: 200, objectFit: "cover" }}
-              image={spot.image}
-              alt={spot.title}
+              image={item.image}
+              alt={item.title}
             />
             <CardContent>
               <Typography variant="h5" component="div">
-                {spot.title}
+                {item.title}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {spot.description}
+                {item.description}
               </Typography>
             </CardContent>
             <IconButton
@@ -74,4 +74,4 @@ const SpotsStep = () => {
   );
 };
 
-export default SpotsStep;
+export default ItemStep;
