@@ -3,6 +3,7 @@ import Navbar from "../components/navbar";
 import { Button } from "@mui/material";
 import "../styles/Home.css";
 import herobg from "../assets/home-bg.mp4";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -20,8 +21,28 @@ const Home = () => {
           <h2 className="hero-subtitle">
             The only way to discover the city secrets
           </h2>
-          <Button variant="contained" style={{ backgroundColor: "#008080" }}>
-            Plan Your Visit
+          <Button
+            className="home-btn"
+            sx={{
+              color: "#fff",
+              textDecoration: "none",
+              fontSize: "1rem",
+              fontWeight: 500,
+              margin: "0 1rem",
+              padding: "0.5rem 1rem",
+              borderRadius: "0.5rem",
+              backgroundColor: "#008088",
+              transition: "box-shadow 0.3s, background-color 0.3s",
+              boxShadow: "none",
+              "&:hover": {
+                backgroundColor: "#009999",
+                boxShadow: "0 0 5px rgba(0, 0, 0, 0.3)",
+              },
+            }}
+          >
+            <Link to="/plan-your-vist" className="link">
+              Plan Your Visit
+            </Link>
           </Button>
         </div>
       </div>
